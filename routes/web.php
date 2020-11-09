@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/movies', 'MovieController@index');
+Route::get('/api/movies/top-rated', 'Api\MovieController@topRated');
+Route::get('/api/movies/movie-of-the-week', 'Api\MovieController@movieOfTheWeek');

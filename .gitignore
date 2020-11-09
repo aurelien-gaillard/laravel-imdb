@@ -5,6 +5,10 @@
 /public/js
 /public/mix-manifest.json
 /storage/*.key
+/storage/imdb_movies.sql
+/storage/imdb.sql
+/storage/actors.sql
+/storage/posters.sql
 /vendor
 .env
 .env.backup
