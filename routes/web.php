@@ -22,6 +22,8 @@ Route::get('/api/movies/top-rated', 'Api\MovieController@topRated');
 Route::get('/api/movies/movie-of-the-week', 'Api\MovieController@movieOfTheWeek');
 Route::get('/api/movies/{id}', 'Api\MovieController@show');
 
+Route::post('/api/movies/{id}/review', 'Api\MovieController@review');
+
 Route::view('/movie/{movie_id}/{path?}', 'movie/detail')->where(['movie_id' => '^\d+$', 'path' => '.*']);
 
 //if no other route was matched yet

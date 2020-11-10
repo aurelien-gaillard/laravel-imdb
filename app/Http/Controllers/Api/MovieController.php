@@ -66,4 +66,15 @@ class MovieController extends Controller
             // OR:
         return compact('movie', 'genres', 'people', 'poster');
     }
+
+    public function review($id, Request $request) 
+    {
+        //todo provide validation !
+        $movie = Movie::findOrFail($id);
+        $movie->reviews()->create($request->all());
+
+        return [
+            'status' => 'success'
+        ];
+    }
 }
