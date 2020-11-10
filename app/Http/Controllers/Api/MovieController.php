@@ -8,6 +8,25 @@ use App\Models\Movie;
 
 class MovieController extends Controller
 {
+    public function show($id) 
+    {
+        $movie = Movie::findOrFail($id);
+
+        $genres = $movie->genres;
+
+        $people = $movie->people()
+            ->limit(3)
+            ->where('movie_person.position_id', 254)
+            ->orderBy('movie_person.priority', 'desc')
+            ->get();
+
+        $poster = $movie->posters()
+            ->where('is_main', 1)
+            ->first();
+
+        return compact('movie', 'genres', 'people', 'poster');
+    }
+    
     public function topRated()
     {
         $movies = Movie::query()
